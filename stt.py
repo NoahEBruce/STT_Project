@@ -65,8 +65,7 @@ def speech_to_text(subscription_key, region, language):
         return None
 
 #Run Section
-import os
-subscription_key = os.getenv('SUBSCRIPTION_KEY')
-region = os.getenv('REGION')
+subscription_key = "Enter your own Azure subscription Key"
+region = "Enter your own region"
 selected_language = select_language()
 recognized_text = speech_to_text(subscription_key, region, selected_language)
