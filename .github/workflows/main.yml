@@ -1,0 +1,28 @@
+name: SST_Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          
+      - name: Use Azure Cognitive Services
+        run: |
+          python stt.py
+          
+        env:
+          SUBSCRIPTION_KEY: ${{ secrets.SUBSCRIPTION_KEY }}
+          REGION: ${{ secrets.REGION }}
